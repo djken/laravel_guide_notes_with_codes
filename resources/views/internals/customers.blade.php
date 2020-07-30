@@ -1,7 +1,18 @@
-<h1>Customers</h1>
+@extends('layout')
 
-<ul>
-    @foreach ($customers as $customer)
-        <li>{{ $customer }} </li>
-    @endforeach
-</ul>
+@section('content')
+    <h1>Customers</h1>
+    
+    <form action="" class="pb-5">
+        <div class="input-group">
+            <input type="text" name="" id="">
+        </div> 
+        <button type="submit">Add Customer</button>
+    </form>
+    
+    <ul>
+        @foreach ($customers as $customer)
+            <li>{{ $customer->name }} </li>
+        @endforeach
+    </ul>
+@endsection
