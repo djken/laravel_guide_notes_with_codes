@@ -17,15 +17,4 @@ Route::view('/', 'welcome');
 Route::view('contact-us', 'contact');
 Route::view('about', 'about');
 
-Route::get('customers', function () {
-    
-    $customers = [
-        'Jean-Kenel Dessources',
-        'Nixon Henry',
-        'Anderson Richez',
-    ];
-    
-    return view('internals.customers', [
-        'customers' => $customers,
-    ]);
-});
+Route::get('customers', 'CustomersController@list');
