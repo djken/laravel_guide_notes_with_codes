@@ -15,4 +15,9 @@ class CustomersController extends Controller
             'customers' => $customers,
         ]);
     }
+    
+    public function store()
+    {
+        dd(request("name"));
+    }
 }
