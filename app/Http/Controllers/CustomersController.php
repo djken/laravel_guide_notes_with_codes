@@ -20,7 +20,7 @@ class CustomersController extends Controller
     {
         $data = request()->validate([
             'name' => 'required|min:3',
-            'email' => 'required|email:rfc,dns'
+            'email' => 'required|email:rfc'
         ]);
 
         $customers = new Customer();
