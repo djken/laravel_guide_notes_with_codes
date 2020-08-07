@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Customer;
+use App\Company;
 use Illuminate\Http\Request;
 
 class CustomersController extends Controller
@@ -11,8 +12,9 @@ class CustomersController extends Controller
     {
         $activeCustomers = Customer::active()->get();
         $inactiveCustomers = Customer::inactive()->get();
-                
-        return view('internals.customers', compact('activeCustomers', 'inactiveCustomers'));
+        $companies = Company::all();
+        
+        return view('internals.customers', compact('activeCustomers', 'inactiveCustomers', 'companies'));
     }
     
     public function store()
@@ -21,6 +23,7 @@ class CustomersController extends Controller
             'name' => 'required|min:3',
             'email' => 'required|email:rfc',
             'active' => 'required',
+            'company_id' => 'required',
         ]);
         
         Customer::create($data);
